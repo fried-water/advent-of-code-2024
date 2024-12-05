@@ -1,7 +1,6 @@
 module Day02 (solve) where
 
 import Control.Arrow ((>>>))
-import Data.List (sort)
 
 type Input = [[Int]]
 
