@@ -1,6 +1,6 @@
 module Day02 (solve) where
 
-import Control.Arrow ((>>>))
+import Control.Arrow ((>>>), (&&&))
 
 type Input = [[Int]]
 
@@ -24,4 +24,4 @@ parse :: String -> Input
 parse = lines >>> map (words >>> map read)
 
 solve :: String -> (Int, Int)
-solve = parse >>> (\x -> (part1 x, part2 x))
+solve = parse >>> (part1 &&& part2)

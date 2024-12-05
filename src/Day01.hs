@@ -1,6 +1,6 @@
 module Day01 (solve) where
 
-import Control.Arrow ((>>>))
+import Control.Arrow ((>>>), (&&&))
 import Data.List (sort)
 
 type Input = ([Int], [Int])
@@ -18,4 +18,4 @@ parse = lines >>> map (line . words) >>> unzip
     line invalid = error $ show invalid
 
 solve :: String -> (Int, Int)
-solve = parse >>> (\x -> (part1 x, part2 x))
+solve = parse >>> (part1 &&& part2)

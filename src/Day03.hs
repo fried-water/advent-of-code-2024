@@ -1,6 +1,6 @@
 module Day03 (solve) where
 
-import Control.Arrow ((>>>))
+import Control.Arrow ((>>>), (&&&))
 import Text.Regex.TDFA
 
 data Inst = Value Int | Do | Dont
@@ -29,4 +29,4 @@ parse input = map convert (input =~ pattern :: [[String]])
     convert invalid = error $ show invalid
 
 solve :: String -> (Int, Int)
-solve = parse >>> (\x -> (part1 x, part2 x))
+solve = parse >>> (part1 &&& part2)
